@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project7-nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: project7-nginx
+  template:
+    metadata:
+      labels:
+        app: project7-nginx
+    spec:
+      containers:
+        - name: nginx
+          image: YOUR_DOCKERHUB_USERNAME/project7-nginx:latest
+          ports:
+            - containerPort: 80
